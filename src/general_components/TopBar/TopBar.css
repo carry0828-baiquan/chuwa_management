@@ -1,0 +1,37 @@
+.top-bar {
+
+display: flex;
+
+
+    background: #111827;
+}
+
+.title-search-bar {
+
+    color: #FFFFFF;
+
+}
+
+.title-text {
+    align-self: flex-end;
+
+
+}
+
+.title-management {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    display: inline-block;
+    /* identical to box height, or 75% */
+}
+
+.title-chuwa {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    /* identical to box height, or 75% */
+    align-self: flex-end;
+    margin: 0px 10px;
+    display: inline-block;
+}

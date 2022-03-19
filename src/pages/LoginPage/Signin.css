@@ -1,0 +1,219 @@
+
+
+
+
+.sign-in-header {
+    /* Sign in header */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+    position: absolute;
+    width: 379px;
+    height: 64px;
+    left: calc(50% - 379px/2 + 0.5px);
+    top: 34px;
+}
+
+.sign-in-email {
+    position: absolute;
+    width: 504px;
+    height: 88px;
+    left: 48px;
+    top: 162px;
+}
+
+.email-label {
+    position: absolute;
+    width: 41px;
+    height: 24px;
+    left: 48px;
+    top: 130px;
+
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: flex-end;
+
+    color: #6B7280;
+}
+
+.email-input {
+    position: absolute;
+    width: 504px;
+    height: 56px;
+    left: 48px;
+    top: 162px;
+
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.password-label {
+    position: absolute;
+    width: 74px;
+    height: 24px;
+    left: 48px;
+    top: 248px;
+
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: flex-end;
+
+    color: #6B7280;
+}
+
+.password-input {
+    position: absolute;
+    width: 504px;
+    height: 56px;
+    left: 48px;
+    top: 280px;
+
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.sign-up-prompt {
+    left: 48px;
+    top: 435px;
+    position: absolute;
+    width: 155px;
+    height: 22px;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 157%;
+    /* identical to box height, or 22px */
+
+    display: flex;
+    align-items: center;
+
+    /* Text/Secondary */
+
+    color: #6B7280;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+
+.signin-signup {
+    position: absolute;
+    width: 51px;
+    height: 22px;
+    left: 223px;
+    top: 435px;
+    white-space: nowrap;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 157%;
+    /* identical to box height, or 22px */
+
+    display: flex;
+    align-items: center;
+
+    /* Primary/Main */
+
+    color: #5048E5;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+.password-reset-link {
+    position: absolute;
+    width: 120px;
+    height: 22px;
+    left: 431px;
+    top: 435px;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 157%;
+    /* identical to box height, or 22px */
+    display: flex;
+    align-items: center;
+    /* Primary/Main */
+
+    color: #5048E5;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+.LoginModal {
+    position: absolute;
+    width: 600px;
+    height: 528px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 16px 1px rgba(229, 229, 229, 0.8);
+    border-radius: 10px;
+    display: flex;
+ }
+
+
+.sign-in-btn {
+    display: table-cell;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    padding: 3px 215px;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    position: absolute;
+    width: 503px;
+    height: 47px;
+    left: calc(50% - 503px/2 - 0.5px);
+    top: 366px;
+    color: #FFFFFF;
+
+    background: #5048E5;
+    border-radius: 4px;
+}
+
+
+
+
