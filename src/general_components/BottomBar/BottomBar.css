@@ -1,0 +1,35 @@
+.bottom-bar {
+    display: flex;
+    flex-direction: row;
+    background-color: #111827;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    color: #FFFFFF;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.bottom-bar-rights {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.socia-media-btns {
+    display: flex;
+    flex-direction: row;
+}
+.bottom-youtube-icon {
+    margin-right: 10px;
+}
+
+.bottom-tiwtter-icon {
+    margin-right: 10px;
+}
+.bottom-facebook-icon {
+    margin-left: 10px;
+}
+.bottom-contact-btns {
+    margin-left: auto;
+    margin-right: auto;
+}

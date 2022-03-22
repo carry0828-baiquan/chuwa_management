@@ -1,12 +1,16 @@
-import {Button, Form, FormGroup, Label, Input} from 'react-bootstrap'
-import './App.css';
-import LoginPage from './pages/LoginPage/LoginPage'
+
+
+import Login_widget from './pages/Login_widget/Login_widget'
 import TopBar from "./general_components/TopBar/TopBar"
+import BottomBar from "./general_components/BottomBar/BottomBar"
+import {Stack, Container, Col, Row} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 function App() {
   return (
     <div className="App">
-        <TopBar/>
-      <LoginPage/>
+            <TopBar/>
     </div>
   );
 }
