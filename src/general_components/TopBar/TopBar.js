@@ -8,32 +8,35 @@ import "./TopBar.css"
 
 const TopBar = () => {
   return (
+
           <Stack direction={"horizontal"} id={"top-bar"} gap={3}>
-              <Col className={"ms-auto"}>
-                  <Row >
-                      <Col>
-                          <h3>Management</h3>
+              <Col className={"title-search-bar"} xs={3}>
+                  <Row className={"top-bar-title"}>
+                      <Col className={"title-management"}>
+                          <h3 >Management</h3>
                       </Col>
                       <Col className={"title-chuwa"}>
                           <text>Chuwa</text>
                       </Col>
                   </Row>
               </Col>
-                            <Col>
+                            <Col class={"mx-auto"}>
                                 <input placeholder={"search"} className={"top-var-search-bar"}/>
                                 <Button>
                                 <AiOutlineSearch/>
                             </Button>
                             </Col>
-              <Button>
-                  <AiOutlineUser/>
-              </Button>
-              <Button>
-                  Log out
-              </Button>
-              <Button>
-                  <AiOutlineShoppingCart/>
-              </Button>
+<Col>
+    <Button>
+        <AiOutlineUser/>
+    </Button>
+    <Button>
+        Log out
+    </Button>
+    <Button>
+        <AiOutlineShoppingCart/>
+    </Button>
+</Col>
           </Stack>
   )
 }

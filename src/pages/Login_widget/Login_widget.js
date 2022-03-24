@@ -19,13 +19,10 @@ const Login_widget = () => {
             <Button className={"sign-in-btn"}>Sign In</Button>
         </form>
         <div className={"sign-in-reminder"}>
-
                 <tspan className={"sign-up-prompt"}>Don't have an account?</tspan>
                 <a href={"100"} className={"signin-signup"}>Sign Up</a>
-
             <a href={"@"} className="password-reset-link">Forget Password?</a>
         </div>
-
     </div>
   )
 }

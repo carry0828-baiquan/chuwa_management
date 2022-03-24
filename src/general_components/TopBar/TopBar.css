@@ -7,7 +7,23 @@ color: #FFFFFF;
 
 }
 
+.top-bar-title {
+    align-items: baseline;
+
+}
+
 
 .title-chuwa {
+ horiz-align: left;
+}
+
+
+.title-management {
+    padding-right: 0;
+
+}
+
+.title-search-bar {
+    margin-left: 60px;
 
 }
