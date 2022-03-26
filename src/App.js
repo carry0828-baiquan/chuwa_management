@@ -5,7 +5,7 @@ import TopBar from "./general_components/TopBar/TopBar"
 import BottomBar from "./general_components/BottomBar/BottomBar"
 import {Stack, Container, Col, Row} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import "./index.css"
 
 function App() {
   return (
