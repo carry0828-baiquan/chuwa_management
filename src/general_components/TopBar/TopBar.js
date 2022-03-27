@@ -19,8 +19,8 @@ const TopBar = () => {
                     </div>
 
                     <div className={"flex flex-row items-center" +
-                        "mr-3  lg:mr-3:  lg: ml-auto lg:gap-4"}>
-                        <button className={"flex flex-row text-amber-50 my-1"}>
+                        "mr-3  lg:mr-3 lg: ml-auto lg:gap-4"}>
+                        <button className={"flex flex-row text-amber-50 my-1 mr-4"}>
                             <AiOutlineUser color={"white"} size={26}/>
                             <div className={"hidden lg:flex"}>Sign in</div>
                         </button>
@@ -29,9 +29,9 @@ const TopBar = () => {
                             <AiOutlineShoppingCart color={"white"} size={26}/>
                             <tspan>Amount</tspan>
                         </button>
-
                     </div>
                 </div>
+
                 {/*mobile search bar*/}
                 <div className={"lg:hidden pt-2 w-full"}>
                     <input className={"w-full border-2"}/>

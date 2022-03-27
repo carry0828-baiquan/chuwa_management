@@ -13,7 +13,7 @@ const BottomBar = () => {
               <AiOutlineFacebook color={"white"} size={23}/>
           </div>
 
-          <div className={"flex order-2 lg:block lg:order-last flex-row gap-3 "}>
+          <div className={"flex order-2 lg:order-last flex-row gap-3 "}>
               <button className={"text-amber-50"}>Contact Us</button>
               <button className={"text-amber-50"}>Privacy Policies</button>
               <button className={"text-amber-50"}>Help</button>
