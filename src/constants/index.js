@@ -22,4 +22,5 @@ const UPDATEPASSWORD = {
   btnName: "Update Password",
 };
 
-export default { LOGIN_FORM_FIELDS, SIGNUP_FORM_FIELDS, UPDATEPASSWORD };
+const constants = { LOGIN_FORM_FIELDS, SIGNUP_FORM_FIELDS, UPDATEPASSWORD };
+export default constants;
