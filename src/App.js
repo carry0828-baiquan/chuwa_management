@@ -1,6 +1,6 @@
 import LoginWidget from "./components/LoginWidget";
 import TopBar from "./components/TopBar";
-import BottomBar from "./components/bottomBar";
+import BottomBar from "./components/BottomBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import CONSTANTS from "./constants/index";
