@@ -1,3 +1,4 @@
+import { Button } from "bootstrap";
 import React from "react";
 import { Form } from "react-bootstrap";
 import { AiOutlineClose } from "react-icons/ai";
@@ -7,13 +8,16 @@ const LoginWidget = (props) => {
     props.setLoginWidgetShowed(false);
   };
   console.log("login state " + props.LoginWidgetShowed);
+  const handleForgetPassword = () => {
+    props.setPasswordResetShowed(true);
+  };
 
   return props.LoginWidgetShowed ? (
     <div
       className={
         "flex flex-col items-center py-2 lg:p-auto " +
-        "lg:mx-80 px-3 gap-3 shadow-lg rounded-lg " +
-        "md:mx-40 mx-10 mt-5 md:mt-10" +
+        "lg: mx-auto px-3 gap-3 shadow-lg rounded-lg " +
+        "md:mx-10 mt-5 md:mt-10" +
         "md: mt-auto"
       }
     >
@@ -47,12 +51,14 @@ const LoginWidget = (props) => {
           </Link>
         </div>
         {props.showForgetPassword ? (
-          <Link
-            to={"/UpdatePassword"}
-            className={"text-sm text-indigo-800 font-bold"}
-          >
-            Forgot Password?
-          </Link>
+          <button onClick={handleForgetPassword}>
+            <Link
+              to={"/UpdatePassword"}
+              className={"text-sm text-indigo-800 font-bold"}
+            >
+              Forgot Password?
+            </Link>
+          </button>
         ) : (
           <div />
         )}

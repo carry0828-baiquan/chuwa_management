@@ -22,6 +22,7 @@ function App() {
           path="/"
           element={
             <LoginWidget
+              setPasswordResetShowed={setPasswordResetShowed}
               LoginWidgetShowed={LoginWidgetShowed}
               setLoginWidgetShowed={setLoginWidgetShowed}
               title={CONSTANTS.LOGIN_FORM_FIELDS.title}
