@@ -7,6 +7,7 @@ import CONSTANTS from "./constants/index";
 import { Route, Routes } from "react-router-dom";
 import UpdatePassword from "./components/UpdatePassword";
 import { useState } from "react";
+
 function App() {
   const [LoginWidgetShowed, setLoginWidgetShowed] = useState(true);
   const [PasswordResetShowed, setPasswordResetShowed] = useState(true);

@@ -6,7 +6,7 @@ const LoginWidget = (props) => {
   const selfCloseWindow = () => {
     props.setLoginWidgetShowed(false);
   };
-  console.log("login state " + props.LoginWidgetShowed);
+  //console.log("login state " + props.LoginWidgetShowed);
   const handleForgetPassword = () => {
     props.setPasswordResetShowed(true);
   };

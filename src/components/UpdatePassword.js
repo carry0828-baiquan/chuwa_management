@@ -78,7 +78,7 @@ function PasswordUpdated() {
       }
     >
       <div>
-        <AiOutlineMail size={50} />
+        <AiOutlineMail size={50} style={{ color: "#5048E5" }} />
       </div>
       <div className="text-center">
         We have sent the update password link to your email, please check that
