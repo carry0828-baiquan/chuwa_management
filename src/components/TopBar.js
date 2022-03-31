@@ -4,11 +4,14 @@ import {
   AiOutlineShoppingCart,
   AiOutlineSearch,
 } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { showLoginWidget } from "../redux/ducks/homePageState";
 
 const TopBar = (props) => {
+  const dispatch = useDispatch();
   const handleOnCLickLogin = () => {
-    props.setLoginWidgetShowed(true);
+    dispatch(showLoginWidget());
   };
 
   console.log(props.LoginWidgetShowed);

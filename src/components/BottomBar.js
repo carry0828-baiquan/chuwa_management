@@ -24,6 +24,7 @@ const BottomBar = () => {
         <button className={"text-amber-50"}>Privacy Policies</button>
         <button className={"text-amber-50"}>Help</button>
       </div>
+
       <p className={"lg:order-1 text-amber-50"}>@2022 All Rights Reserved.</p>
     </div>
   );

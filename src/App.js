@@ -6,26 +6,46 @@ import "./index.css";
 import CONSTANTS from "./constants/index";
 import { Route, Routes } from "react-router-dom";
 import UpdatePassword from "./components/UpdatePassword";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  showLoginWidget,
+  showPasswordReset,
+} from "./redux/ducks/homePageState";
 
 function App() {
-  const [LoginWidgetShowed, setLoginWidgetShowed] = useState(true);
-  const [PasswordResetShowed, setPasswordResetShowed] = useState(true);
+  // const [LoginWidgetShowed, setLoginWidgetShowed] = useState(true);
+  // const [PasswordResetShowed, setPasswordResetShowed] = useState(true);
+  const LoginWidgetShowed = useSelector(
+    (state) => state.homePageState.LoginWidgetShowed
+  );
+
+  const PasswordResetShowed = useSelector(
+    (state) => state.homePageState.PasswordResetShowed
+  );
+  const dispatch = useDispatch();
+  const doShowLoginWidget = () => {
+    dispatch(showLoginWidget());
+  };
+
+  const doShowPasswordReset = () => {
+    dispatch(showPasswordReset());
+  };
 
   return (
     <div className="flex flex-col h-screen">
       <TopBar
-        setLoginWidgetShowed={setLoginWidgetShowed}
+        setLoginWidgetShowed={doShowLoginWidget}
         LoginWidgetShowed={LoginWidgetShowed}
       />
+
       <Routes>
         <Route
           path="/"
           element={
             <LoginWidget
-              setPasswordResetShowed={setPasswordResetShowed}
+              setPasswordResetShowed={doShowPasswordReset}
               LoginWidgetShowed={LoginWidgetShowed}
-              setLoginWidgetShowed={setLoginWidgetShowed}
+              setLoginWidgetShowed={doShowLoginWidget}
               title={CONSTANTS.LOGIN_FORM_FIELDS.title}
               btnName={CONSTANTS.LOGIN_FORM_FIELDS.btnName}
               footer={CONSTANTS.LOGIN_FORM_FIELDS.footer}
@@ -42,7 +62,7 @@ function App() {
           element={
             <LoginWidget
               LoginWidgetShowed={LoginWidgetShowed}
-              setLoginWidgetShowed={setLoginWidgetShowed}
+              setLoginWidgetShowed={doShowLoginWidget}
               title={CONSTANTS.SIGNUP_FORM_FIELDS.title}
               btnName={CONSTANTS.SIGNUP_FORM_FIELDS.btnName}
               footer={CONSTANTS.SIGNUP_FORM_FIELDS.footer}
@@ -60,7 +80,7 @@ function App() {
           element={
             <UpdatePassword
               PasswordResetShowed={PasswordResetShowed}
-              setPasswordResetShowed={setPasswordResetShowed}
+              setPasswordResetShowed={doShowPasswordReset}
             />
           }
         ></Route>

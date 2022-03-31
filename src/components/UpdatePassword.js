@@ -3,16 +3,19 @@ import { AiOutlineClose, AiOutlineMail } from "react-icons/ai";
 import constants from "../constants";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { showPasswordReset } from "../redux/ducks/homePageState";
 
 function UpdatePassword(props) {
   const selfCloseWindow = () => {
-    props.setPasswordResetShowed(false);
+    dispatch(showPasswordReset());
     console.log("password updated window closed");
   };
 
   const [UpdatePassword, setUpdatePassword] = useState(false);
+  const dispatch = useDispatch();
   const handleOnUpdatePassword = () => {
-    props.setPasswordResetShowed(false);
+    dispatch(showPasswordReset());
     setUpdatePassword(true);
     console.log("password updated window closed");
   };

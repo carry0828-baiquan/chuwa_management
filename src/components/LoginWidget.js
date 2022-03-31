@@ -1,14 +1,22 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import { AiOutlineClose } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+  showLoginWidget,
+  showPasswordReset,
+} from "../redux/ducks/homePageState";
+
 const LoginWidget = (props) => {
+  const dispatch = useDispatch();
   const selfCloseWindow = () => {
-    props.setLoginWidgetShowed(false);
+    dispatch(showLoginWidget());
   };
+
   //console.log("login state " + props.LoginWidgetShowed);
   const handleForgetPassword = () => {
-    props.setPasswordResetShowed(true);
+    dispatch(showPasswordReset());
   };
 
   return props.LoginWidgetShowed ? (

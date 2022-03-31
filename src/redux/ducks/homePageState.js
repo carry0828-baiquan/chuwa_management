@@ -1,5 +1,3 @@
-const initialState = { LoginWidgetShowed: true, PasswordResetShowed: true };
-
 const SHOWLOGINWIDGET = "showLoginWidget";
 const SHOWPASSWORDRESET = "showPasswordReset";
 
@@ -10,6 +8,8 @@ export const showLoginWidget = () => ({
 export const showPasswordReset = () => ({
   type: SHOWPASSWORDRESET,
 });
+
+const initialState = { LoginWidgetShowed: true, PasswordResetShowed: true };
 
 const winState = (state = initialState, action) => {
   switch (action.type) {
