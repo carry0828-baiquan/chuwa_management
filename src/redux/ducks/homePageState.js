@@ -21,4 +21,5 @@ const winState = (state = initialState, action) => {
       return state;
   }
 };
+
 export default winState;

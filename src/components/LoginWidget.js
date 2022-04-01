@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Form } from "react-bootstrap";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
@@ -10,6 +10,7 @@ import {
 
 const LoginWidget = (props) => {
   const dispatch = useDispatch();
+
   const selfCloseWindow = () => {
     dispatch(showLoginWidget());
   };
@@ -37,7 +38,10 @@ const LoginWidget = (props) => {
       <h1 className={"font-bold text-xl lg:text-2xl text-center"}>
         {props.title}
       </h1>
-      <Form className={"flex flex-col gap-1 w-full"}>
+      <Form
+        className={"flex flex-col gap-1 w-full"}
+        onSubmit={props.handleOnFormSubmit}
+      >
         <label className={"text-gray-400"}>Email</label>
         <input className={"border-2"} />
         <label className={"text-gray-400"}>Password</label>
