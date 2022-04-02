@@ -4,6 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
+  setEmail,
   showLoginWidget,
   showPasswordReset,
 } from "../redux/ducks/homePageState";
@@ -19,6 +20,8 @@ const LoginWidget = (props) => {
   const handleForgetPassword = () => {
     dispatch(showPasswordReset());
   };
+
+
 
   return props.LoginWidgetShowed ? (
     <div
@@ -38,14 +41,15 @@ const LoginWidget = (props) => {
       <h1 className={"font-bold text-xl lg:text-2xl text-center"}>
         {props.title}
       </h1>
+
       <Form
         className={"flex flex-col gap-1 w-full"}
         onSubmit={props.handleOnFormSubmit}
       >
         <label className={"text-gray-400"}>Email</label>
-        <input className={"border-2"} />
+        <input className={"border-2"} ref={props.emailRef}/>
         <label className={"text-gray-400"}>Password</label>
-        <input className={"border-2"} />
+        <input className={"border-2"} ref={props.passwordRef} />
         <button className={"bg-indigo-700 text-amber-50 mt-2 py-2"}>
           {props.btnName}
         </button>

@@ -42,6 +42,7 @@ function UpdatePassword(props) {
         <h1 className={"font-bold text-xl lg:text-2xl text-center"}>
           {constants.UPDATEPASSWORD.title}
         </h1>
+
         <div className="text-sm text-gray-400 text-center">
           {constants.UPDATEPASSWORD.prompt}
         </div>
@@ -59,6 +60,7 @@ function UpdatePassword(props) {
       </div>
     );
   }
+
   if (UpdatePassword) {
     return <PasswordUpdated />;
   }

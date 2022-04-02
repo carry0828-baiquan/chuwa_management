@@ -1,7 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-// Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
+import  "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDC41a6qit6dw0qHuvomlqDE0srtaEC7LA",
@@ -9,11 +8,15 @@ const firebaseConfig = {
   projectId: "chuwa-management",
   storageBucket: "chuwa-management.appspot.com",
   messagingSenderId: "559511364693",
-  appId: "1:559511364693:web:963f700f88562951fde0dc",
-  measurementId: "G-2LGK78D7PN",
+  appId: "1:559511364693:web:78f31a9125d977cbfde0dc",
+  measurementId: "G-8LQRPLN7VX"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 export const auth = app.auth();
-export default app;
+export default app
+
+

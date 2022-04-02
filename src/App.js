@@ -8,12 +8,14 @@ import { Route, Routes } from "react-router-dom";
 import UpdatePassword from "./components/UpdatePassword";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  loadingSignup,
   showLoginWidget,
-  showPasswordReset,
+  showPasswordReset, signupError,
 } from "./redux/ducks/homePageState";
 import { AuthProvider } from "./contexts/AuthContext";
-import { useRef, useState } from "react";
+import { useRef} from "react";
 import { useAuth } from "./contexts/AuthContext";
+import {getAuth} from "firebase/auth";
 
 function App() {
   // const [LoginWidgetShowed, setLoginWidgetShowed] = useState(true);
@@ -25,6 +27,7 @@ function App() {
   const PasswordResetShowed = useSelector(
     (state) => state.homePageState.PasswordResetShowed
   );
+
   const dispatch = useDispatch();
   const doShowLoginWidget = () => {
     dispatch(showLoginWidget());
@@ -34,36 +37,47 @@ function App() {
     dispatch(showPasswordReset());
   };
 
-  const { signup } = useAuth();
+  const setLoadingSignup = () => {
+    dispatch(loadingSignup());
+  }
+  const setSignupError = () => {
+    dispatch(signupError());
+  }
+
+
+  const {signup} = useAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const [signupError, setsignupError] = useState("");
-  const [loadingSignup, setLodingSignup] = useState(false);
+
 
   async function handleOnSignupSubmit(e) {
-    e.preventDefault();
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setsignupError("passwords dont match");
-    }
-    try {
-      setsignupError("");
-      setLodingSignup(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
-    } catch {
-      setsignupError("faliled to create an account");
-    }
-    setLodingSignup(false);
+
+      e.preventDefault()
+
+      // if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      //     return setError("Passwords do not match")
+      // }
+
+      try {
+          // setError("")
+          // setLoading(true)
+          await signup(emailRef.current.value, passwordRef.current.value)
+          // history.push("/")
+      } catch {
+          // setError("Failed to create an account")
+      }
+
+      // setLoading(false)
+
   }
 
   return (
-    <AuthProvider>
+
       <div className="flex flex-col h-screen">
         <TopBar
           setLoginWidgetShowed={doShowLoginWidget}
           LoginWidgetShowed={LoginWidgetShowed}
         />
-
         <Routes>
           <Route
             path="/"
@@ -80,6 +94,8 @@ function App() {
                 showForgetPassword={
                   CONSTANTS.LOGIN_FORM_FIELDS.showForgetPassword
                 }
+                emailRef = {emailRef}
+                passwordRef = {passwordRef}
               />
             }
           />
@@ -98,6 +114,8 @@ function App() {
                   CONSTANTS.SIGNUP_FORM_FIELDS.showForgetPassword
                 }
                 handleOnFormSubmit={handleOnSignupSubmit}
+                emailRef = {emailRef}
+                passwordRef = {passwordRef}
               />
             }
           />
@@ -110,11 +128,11 @@ function App() {
                 setPasswordResetShowed={doShowPasswordReset}
               />
             }
-          ></Route>
+          />
         </Routes>
         <BottomBar />
       </div>
-    </AuthProvider>
+
   );
 }
 

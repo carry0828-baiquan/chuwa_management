@@ -4,6 +4,7 @@ import {
   AiOutlineShoppingCart,
   AiOutlineSearch,
 } from "react-icons/ai";
+
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { showLoginWidget } from "../redux/ducks/homePageState";
@@ -26,6 +27,8 @@ const TopBar = (props) => {
           <h1 className={"hidden shrink lg:flex text-amber-50 text-2xl mr-1"}>
             anagement
           </h1>
+
+
           <p className={"text-amber-50"}>Chuwa</p>
         </div>
         <div id={"search-bar"} className={"hidden lg:block lg:ml-10"}>
