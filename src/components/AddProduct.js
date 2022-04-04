@@ -8,7 +8,7 @@ function AddProduct() {
   const imgRef = useRef();
   const nameRef = useRef();
   const priceRef = useRef();
-  const categoryRef = useRef();
+  //const categoryRef = useRef();
   const desRef = useRef();
   const navigate = useNavigate();
   const [imgUrl, setImgURL] = useState();

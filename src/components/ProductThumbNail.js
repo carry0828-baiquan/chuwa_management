@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedProduct } from "../redux/productsAction";
 function ProductThumbNail(props) {

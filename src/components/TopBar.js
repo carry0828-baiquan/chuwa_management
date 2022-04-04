@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { auth } from "firebase";
 import { useAuth } from "../contexts/AuthContext";
-import { error, loading } from "../redux/reducers/homePageState";
+import { loading } from "../redux/reducers/homePageState";
 import { showLoginWidget } from "../redux/reducers/homePageState";
 const TopBar = (props) => {
   const dispatch = useDispatch();

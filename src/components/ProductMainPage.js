@@ -27,7 +27,7 @@ function ProductMainPage() {
 
     // return cleanup function
     return () => subscriber();
-  }, [loading]); // empty dependencies array => useEffect only called once
+  }, [dispatch, loading]); // empty dependencies array => useEffect only called once
   console.log(posts);
   if (loading) {
     return <LoadingSpinner />;
