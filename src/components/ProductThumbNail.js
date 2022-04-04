@@ -17,7 +17,7 @@ function ProductThumbNail(props) {
       <img
         src={props.image}
         alt=""
-        className="object-cover rounded-lg mx-auto h-80 mb-3"
+        className="object-cover rounded-lg mx-auto h-80 mb-3 w-full"
         onClick={handleOnClickImg}
       />
       <div className="text-gray text-xl">{props.name}</div>

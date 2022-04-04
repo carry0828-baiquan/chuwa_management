@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { DropdownButton } from "react-bootstrap";
 import { db } from "../firebase";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+
 function AddProduct() {
   const imgRef = useRef();
   const nameRef = useRef();
@@ -10,6 +11,12 @@ function AddProduct() {
   const categoryRef = useRef();
   const desRef = useRef();
   const navigate = useNavigate();
+  const [imgUrl, setImgURL] = useState();
+
+  const passImgURL = () => {
+    setImgURL(imgRef.current.value);
+  };
+
   const handlePostToFireStore = () => {
     if (
       //check empty field
@@ -38,24 +45,31 @@ function AddProduct() {
   };
 
   return (
-    <div className="flex flex-col gap={3}">
+    <div className="flex flex-col gap-3 mx-3 lg:mx-auto mb-3">
       <div className="text-2xl flex justify-center">Create Product</div>
       <label>Product name</label>
       <input type="text" className="border-2" ref={nameRef}></input>
       <label>Product Description</label>
-      <input className="border-2" ref={desRef}></input>
+      <textarea
+        type="text"
+        className="border-2 resize-y "
+        ref={desRef}
+      ></textarea>
       <label>Category</label>
       <DropdownButton title="category1" />
-      <label>price</label>
+      <label>Price</label>
       <input className="border-2" ref={priceRef}></input>
       <label>In Stock Quantity</label>
       <input className="border-2"></input>
       <label>Add Image Link</label>
-      <input className="border-2" ref={imgRef}></input>
-      <div className="flex justify-center bg-slate-200">
-        <div>Image preview!</div>
+      <input className="border-2" ref={imgRef} onChange={passImgURL}></input>
+      <div className="flex justify-center border-dashed border-2 p-2">
+        <img src={imgUrl} alt="preview"></img>
       </div>
-      <button className="" onClick={handlePostToFireStore}>
+      <button
+        className="bg-indigo-600 text-white rounded p-2"
+        onClick={handlePostToFireStore}
+      >
         Add Product
       </button>
     </div>

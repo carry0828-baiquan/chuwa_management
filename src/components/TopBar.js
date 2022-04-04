@@ -7,7 +7,7 @@ import {
 
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import firebase, { auth } from "firebase";
+import { auth } from "firebase";
 import { useAuth } from "../contexts/AuthContext";
 import { error, loading } from "../redux/reducers/homePageState";
 import { showLoginWidget } from "../redux/reducers/homePageState";
@@ -29,9 +29,6 @@ const TopBar = (props) => {
   const doShowLoginWidget = () => {
     console.log("show login");
     dispatch(showLoginWidget());
-  };
-  const setSigninError = (err) => {
-    dispatch(error(err));
   };
 
   async function handleOnSignOut(e) {
@@ -107,7 +104,7 @@ const TopBar = (props) => {
           </button>
           <button className={"flex flex-row text-amber-50 my-1"}>
             <AiOutlineShoppingCart color={"white"} size={26} />
-            <tspan>Amount</tspan>
+            <div>Amount</div>
           </button>
         </div>
       </div>
