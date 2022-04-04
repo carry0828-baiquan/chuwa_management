@@ -9,22 +9,25 @@ export const showPasswordReset = () => ({
   type: SHOWPASSWORDRESET,
 });
 
-export const signupError = () => (
-    {
-      type:"signupError"
-    }
-)
+export const error = (string) => ({
+  type: "error",
+  payload: string,
+});
 
-export const loadingSignup = () => ({
-  type: "loadingSignup"
-})
+export const loading = () => ({
+  type: "loading",
+});
 
-export const  setEmail = () => ({
-  type:" setEmail"
-})
+export const setEmail = () => ({
+  type: " setEmail",
+});
 
-const initialState = { LoginWidgetShowed: true, PasswordResetShowed: true,
-signupError: "", loadingSignup: false,  setEmail:""
+const initialState = {
+  LoginWidgetShowed: true,
+  PasswordResetShowed: true,
+  error: "",
+  loading: false,
+  setEmail: "",
 };
 
 const winState = (state = initialState, action) => {
@@ -33,12 +36,12 @@ const winState = (state = initialState, action) => {
       return { ...state, LoginWidgetShowed: !state.LoginWidgetShowed };
     case SHOWPASSWORDRESET:
       return { ...state, PasswordResetShowed: !state.PasswordResetShowed };
-    case signupError:
-      return {...state, signupError: "cant signup"}
-    case loadingSignup:
-      return {...state, loadingSignup: true}
-    case  setEmail:
-      return {...state,  setEmail: action.payload}
+    case error:
+      return { ...state, error: action.payload };
+    case loading:
+      return { ...state, loading: !loading };
+    case setEmail:
+      return { ...state, setEmail: action.payload };
     default:
       return state;
   }

@@ -13,7 +13,7 @@ const SIGNUP_FORM_FIELDS = {
   footer: "Already have an account",
   footerLinkName: "Sign in",
   showForgetPassword: false,
-  footerLinkPath: "/",
+  footerLinkPath: "/login",
 };
 
 const UPDATEPASSWORD = {

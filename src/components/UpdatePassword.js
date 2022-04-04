@@ -4,8 +4,9 @@ import constants from "../constants";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { showPasswordReset } from "../redux/ducks/homePageState";
-
+import { loading, showPasswordReset } from "../redux/reducers/homePageState";
+import { useAuth } from "../contexts/AuthContext";
+import { useRef } from "react";
 function UpdatePassword(props) {
   const selfCloseWindow = () => {
     dispatch(showPasswordReset());
@@ -14,11 +15,29 @@ function UpdatePassword(props) {
 
   const [UpdatePassword, setUpdatePassword] = useState(false);
   const dispatch = useDispatch();
-  const handleOnUpdatePassword = () => {
+
+  const handleOnUpdatePassword = (e) => {
     dispatch(showPasswordReset());
     setUpdatePassword(true);
     console.log("password updated window closed");
+    updatePassword(e);
   };
+
+  const setLoading = () => {
+    dispatch(loading());
+  };
+  const { resetPassword } = useAuth();
+  const emailRef = useRef();
+
+  async function updatePassword(e) {
+    e.preventDefault();
+    try {
+      setLoading();
+      await resetPassword(emailRef.current.value);
+      console.log("email sent", emailRef.current.value);
+    } catch {}
+    setLoading();
+  }
 
   if (props.PasswordResetShowed) {
     return (
@@ -49,7 +68,7 @@ function UpdatePassword(props) {
 
         <Form className={"flex flex-col gap-1 w-full mb-6"}>
           <label className={"text-gray-400"}>Email</label>
-          <input className={"border-2"} />
+          <input className={"border-2"} ref={emailRef} />
           <button
             className={"bg-indigo-700 text-amber-50 mt-2 py-2"}
             onClick={handleOnUpdatePassword}

@@ -1,13 +1,12 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
-  setEmail,
   showLoginWidget,
   showPasswordReset,
-} from "../redux/ducks/homePageState";
+} from "../redux/reducers/homePageState";
 
 const LoginWidget = (props) => {
   const dispatch = useDispatch();
@@ -20,8 +19,6 @@ const LoginWidget = (props) => {
   const handleForgetPassword = () => {
     dispatch(showPasswordReset());
   };
-
-
 
   return props.LoginWidgetShowed ? (
     <div
@@ -47,10 +44,13 @@ const LoginWidget = (props) => {
         onSubmit={props.handleOnFormSubmit}
       >
         <label className={"text-gray-400"}>Email</label>
-        <input className={"border-2"} ref={props.emailRef}/>
+        <input className={"border-2"} ref={props.emailRef} />
         <label className={"text-gray-400"}>Password</label>
-        <input className={"border-2"} ref={props.passwordRef} />
-        <button className={"bg-indigo-700 text-amber-50 mt-2 py-2"}>
+        <input type="password" className={"border-2"} ref={props.passwordRef} />
+        <button
+          className={"bg-indigo-700 text-amber-50 mt-2 py-2"}
+          disabled={props.btnDisableState}
+        >
           {props.btnName}
         </button>
       </Form>
