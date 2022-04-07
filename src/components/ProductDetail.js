@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {addToCart, selectedProduct} from "../redux/productsAction";
+import {addToCart, selectedProduct, showCartItemAmount} from "../redux/productsAction";
 import {useNavigate} from "react-router-dom";
 function ProductDetail() {
   const posts = useSelector((state) => state.allProducts.products);
@@ -10,6 +10,7 @@ function ProductDetail() {
   const cart = useSelector((state) => state.cartItemsCnt.cart);
   let foundDup = false;
   let data;
+  let totalAmount = 0
   posts.forEach((post) => {
     if (post.name === product) {
       data = post;
@@ -40,6 +41,10 @@ function ProductDetail() {
         }
       }
     })
+    cart.forEach((e) => {
+      totalAmount += e.price * e.count;
+    });
+    dispatch(showCartItemAmount(totalAmount))
 
   }
   return (

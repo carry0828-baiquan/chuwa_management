@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {
   AiOutlineUser,
   AiOutlineShoppingCart,
@@ -13,7 +13,7 @@ import { loading } from "../redux/reducers/homePageState";
 import { showLoginWidget } from "../redux/reducers/homePageState";
 import { setShowCartDetail } from "../redux/productsAction";
 
-const TopBar = (props) => {
+const TopBar = () => {
   const cart = useSelector((state) => state.cartItemsCnt.cart);
 
   const dispatch = useDispatch();
@@ -21,7 +21,6 @@ const TopBar = (props) => {
   const { signOut } = useAuth();
   let userLoggedIn = null;
   userLoggedIn = !!auth().currentUser;
-  const cartTotalAmount = useSelector((state) => state.showCartAmount.cartTotalAmount);
   let totalAmount = 0
   cart.forEach((e) => {
     totalAmount += e.price * e.count;

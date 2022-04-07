@@ -7,8 +7,6 @@ const EditProduct = () => {
     const posts = useSelector((state) => state.allProducts.products);
     const product = useSelector((state) => state.product.select);
     console.log(product)
-    const cart = useSelector((state) => state.cartItemsCnt.cart);
-    let foundDup = false;
     let data;
     posts.forEach((post) => {
         if (post.name === product) {

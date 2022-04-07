@@ -2,14 +2,13 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart, removeCart, showCartItemAmount} from "../redux/productsAction";
 import {AiOutlineMinus, AiOutlinePlus} from "react-icons/ai"
-import {useState} from "react";
+
 
 
 const CartItemDetail = (props) => {
     const cart = useSelector((state) => state.cartItemsCnt.cart);
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.allProducts.products);
-    const [itemCount, setItemCount] = useState(props.count);
 
     let foundDup = false;
     let data;
@@ -62,7 +61,7 @@ const CartItemDetail = (props) => {
             totalAmount += e.price * e.count;
         });
         dispatch(showCartItemAmount(totalAmount))
-        setItemCount(props.count)
+
 
         // console.log("current cart", cart)
     }
@@ -85,7 +84,6 @@ const CartItemDetail = (props) => {
             totalAmount += e.price * e.count;
         });
         dispatch(showCartItemAmount(totalAmount))
-        setItemCount(data.count)
 
     }
     return (

@@ -2,12 +2,9 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    addPriceToCart,
     addToCart,
-    removeSelectedProduct,
     selectedProduct, showCartItemAmount,
 } from "../redux/productsAction";
-import { addCartReducer } from "../redux/reducers/productsReducer";
 
 function ProductThumbNail(props) {
   const navigate = useNavigate();
@@ -47,7 +44,7 @@ function ProductThumbNail(props) {
      cart.forEach((e) => {
          totalAmount += e.price * e.count;
      });
-     dispatch(showCartItemAmount(totalAmount))
+    dispatch(showCartItemAmount(totalAmount))
       console.log("after add price",totalAmount)
   }
 
