@@ -6,11 +6,13 @@ import { db } from "../firebase";
 import { setProducts } from "../redux/productsAction";
 import ProductThumbNail from "./ProductThumbNail";
 import LoadingSpinner from "./LoadingSpinner";
+
 function ProductMainPage() {
   const [loading, setLoading] = useState(true);
   const posts = useSelector((state) => state.allProducts.products);
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  // const cart = useSelector((state) => state.cartItemsCnt.cart);
 
   useEffect(() => {
     const getPostsFromFirebase = [];
@@ -28,13 +30,15 @@ function ProductMainPage() {
     // return cleanup function
     return () => subscriber();
   }, [dispatch, loading]); // empty dependencies array => useEffect only called once
-  console.log(posts);
+
+  console.log(posts)
+
   if (loading) {
     return <LoadingSpinner />;
   }
 
   const handleOnAddProduct = () => {
-    naviagte("/addProduct");
+    navigate("/addProduct");
   };
 
   return (
@@ -43,7 +47,7 @@ function ProductMainPage() {
         <div className="text-3xl font-extrabold mx-auto my-3 lg:flex-none ">
           Products
         </div>
-        <div className="lg:mx-auto lg:flex-grow"></div>
+        <div className="lg:mx-auto lg:flex-grow" />
         <div className="mx-auto lg:flex-none">
           <button className=" bg-indigo-600 p-2 rounded text-white">
             drop down
@@ -57,7 +61,7 @@ function ProductMainPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 mx-3 lg:grid-cols-5 lg: grid-rows-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-3 lg:grid-cols-5">
         {posts.length > 0 ? (
           posts.map((post) => (
             <ProductThumbNail
@@ -66,7 +70,7 @@ function ProductMainPage() {
               image={post.img}
               price={post.price}
               des={post.des}
-            ></ProductThumbNail>
+            />
           ))
         ) : (
           <h1 className="flex justify-center">

@@ -17,7 +17,8 @@ import { useAuth } from "./contexts/AuthContext";
 import ProductMainPage from "./components/ProductMainPage";
 import AddProduct from "./components/AddProduct";
 import ProductDetail from "./components/ProductDetail";
-
+import CartDetail from "./components/CartDetail";
+import EditProduct from "./components/EditProduct";
 function App() {
   const LoginWidgetShowed = useSelector(
     (state) => state.homePageState.LoginWidgetShowed
@@ -35,6 +36,9 @@ function App() {
   const doShowPasswordReset = () => {
     dispatch(showPasswordReset());
   };
+  const cartDetailShowing = useSelector((state) => state.cartShowing.showCart);
+
+  console.log(cartDetailShowing, "cartdetailshowing");
   const [loading, setLoading] = useState(false);
 
   const { signup } = useAuth();
@@ -82,12 +86,16 @@ function App() {
     setLoading(false);
   }
 
-  return (
+
+
+    return (
     <div className="flex flex-col h-screen bg-#E5E5E5">
       <TopBar
         setLoginWidgetShowed={doShowLoginWidget}
         LoginWidgetShowed={LoginWidgetShowed}
+
       />
+      <CartDetail showing={cartDetailShowing} className={"relative"} />
       <Routes>
         <Route
           path="/"
@@ -104,6 +112,14 @@ function App() {
               <AddProduct />
             </RequireRoute>
           }
+        />
+        <Route
+            path="/EditProduct"
+            element={
+              <RequireRoute>
+                <EditProduct />
+              </RequireRoute>
+            }
         />
         <Route
           path="/productDetail"
@@ -166,6 +182,7 @@ function App() {
           }
         />
       </Routes>
+
       <BottomBar />
     </div>
   );

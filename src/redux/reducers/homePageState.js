@@ -19,7 +19,7 @@ export const loading = () => ({
 });
 
 export const setEmail = () => ({
-  type: " setEmail",
+  type: " Email",
 });
 
 const initialState = {
@@ -41,7 +41,8 @@ const winState = (state = initialState, action) => {
     case loading:
       return { ...state, loading: !loading };
     case setEmail:
-      return { ...state, setEmail: action.payload };
+      return { ...state, Email: action.payload };
+
     default:
       return state;
   }

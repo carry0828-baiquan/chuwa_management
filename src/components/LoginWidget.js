@@ -10,7 +10,6 @@ import {
 
 const LoginWidget = (props) => {
   const dispatch = useDispatch();
-
   const selfCloseWindow = () => {
     dispatch(showLoginWidget());
   };

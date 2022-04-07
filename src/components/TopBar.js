@@ -1,30 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   AiOutlineUser,
   AiOutlineShoppingCart,
   AiOutlineSearch,
 } from "react-icons/ai";
-
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { auth } from "firebase";
 import { useAuth } from "../contexts/AuthContext";
 import { loading } from "../redux/reducers/homePageState";
 import { showLoginWidget } from "../redux/reducers/homePageState";
+import { setShowCartDetail } from "../redux/productsAction";
+
 const TopBar = (props) => {
+  const cart = useSelector((state) => state.cartItemsCnt.cart);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { signOut } = useAuth();
   let userLoggedIn = null;
-  if (auth().currentUser) {
-    userLoggedIn = true;
-  } else {
-    userLoggedIn = false;
-  }
+  userLoggedIn = !!auth().currentUser;
+  const cartTotalAmount = useSelector((state) => state.showCartAmount.cartTotalAmount);
+  let totalAmount = 0
+  cart.forEach((e) => {
+    totalAmount += e.price * e.count;
+  });
 
   const setLoading = () => {
     dispatch(loading());
   };
+
 
   const doShowLoginWidget = () => {
     console.log("show login");
@@ -62,6 +68,11 @@ const TopBar = (props) => {
       navigate("/login");
     }
   };
+  const showCartDetail = () => {
+    console.log("cart detail toggled");
+    dispatch(setShowCartDetail(true));
+  };
+
 
   return (
     <div className={"flex flex-col w-full bg-slate-900 p-3 lg:py-0"}>
@@ -102,9 +113,12 @@ const TopBar = (props) => {
               {userLoggedIn ? "Log Out" : "Sign in"}
             </div>
           </button>
-          <button className={"flex flex-row text-amber-50 my-1"}>
+          <button
+            className={"flex flex-row text-amber-50 my-1"}
+            onClick={showCartDetail}
+          >
             <AiOutlineShoppingCart color={"white"} size={26} />
-            <div>Amount</div>
+            <div>${totalAmount}</div>
           </button>
         </div>
       </div>
