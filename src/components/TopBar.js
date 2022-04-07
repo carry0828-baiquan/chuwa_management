@@ -118,7 +118,7 @@ const TopBar = (props) => {
             onClick={showCartDetail}
           >
             <AiOutlineShoppingCart color={"white"} size={26} />
-            <div>${totalAmount}</div>
+            <div>${totalAmount }</div>
           </button>
         </div>
       </div>

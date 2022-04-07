@@ -47,9 +47,6 @@ function ProductThumbNail(props) {
      cart.forEach((e) => {
          totalAmount += e.price * e.count;
      });
-
-
-
      dispatch(showCartItemAmount(totalAmount))
       console.log("after add price",totalAmount)
   }
